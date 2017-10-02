@@ -1,0 +1,15 @@
+﻿Enable-Migrations -ContextTypeName ApplicationDbContext -MigrationsDirectory Migrations\Models
+
+add-migration -ConfigurationTypeName CodeFirstLab.Migrations.Models.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName CodeFirstLab.Migrations.Models.Configuration
+            
+			
+			context.Provinces.AddOrUpdate(
+               p => p.ProvinceName, DummyData.getProvinces().ToArray());
+
+            context.SaveChanges();
+
+            //context.Cities.AddOrUpdate(
+            //    c => c.CityName, DummyData.getCities(context).ToArray());
+
